@@ -97,7 +97,11 @@ body {
   padding: 45px 45px;
   @media screen and (max-width: 650px) {
     margin: 30px auto;
-    width: 300px;
+    width: 250px;
+  }
+  @media screen and (min-width: 650px) and (max-width: 1000px) {
+    margin: 30px auto;
+    width: 400px;
   }
 }
 
@@ -132,7 +136,7 @@ body {
   height: 0;
   font-size: 20px;
   text-align: justify;
-  overflow: hidden;
+  overflow-y: hidden;
   transition: 0.5s;
 }
 
@@ -145,7 +149,7 @@ body {
 }
 
 .accordion .container.active .content {
-  height: 150px;
+  height: 100px;
 }
 
 /* Changes from plus sign to negative sign once active */

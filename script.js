@@ -15,6 +15,7 @@ function getFacts(div) {
     fetch('https://catfact.ninja/fact')
     .then(res => res.json())
     .then(response => {
+        // console.log(factDesription);
         factDesription.innerText = response.fact
     })
     factItem.appendChild(factDesription);
@@ -27,13 +28,18 @@ const accordion = document.getElementsByClassName('container');
 for (i=0; i<accordion.length; i++) {
   accordion[i].addEventListener('click', function () {
     this.classList.toggle('active')
-    console.log('this', this)
   })
 }
 
 container.forEach(div => {
     div.addEventListener('click', function() {
-        div.innerText = ''
+      // console.log(div.textContent);
+      div.innerText = ''
+        if (div.textContent === '') {
+          console.log("Div boş.");
+        } else {
+          console.log("Div içeriği dolu.");
+        }
         getFacts(div);
     })
 })
