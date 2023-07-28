@@ -1,6 +1,7 @@
 const factList = document.querySelector('.factList');
 const container = document.querySelectorAll('.container')
-
+const logoDiv = document.querySelector('.logo-div')
+const logo = document.querySelector('.logo')
 
 function getFacts(div) {
     const factItem = document.createElement('div');
@@ -9,13 +10,12 @@ function getFacts(div) {
     factItem.className = 'factItem'
     factDesription.className = 'content'
     divLabel.className = 'label'
-    divLabel.innerText = 'Fact'
+    divLabel.innerText = 'Click to open fact'
     
     
     fetch('https://catfact.ninja/fact')
     .then(res => res.json())
     .then(response => {
-        // console.log(factDesription);
         factDesription.innerText = response.fact
     })
     factItem.appendChild(factDesription);
@@ -33,13 +33,14 @@ for (i=0; i<accordion.length; i++) {
 
 container.forEach(div => {
     div.addEventListener('click', function() {
-      // console.log(div.textContent);
       div.innerText = ''
-        if (div.textContent === '') {
-          console.log("Div boş.");
-        } else {
-          console.log("Div içeriği dolu.");
-        }
         getFacts(div);
     })
+})
+
+logoDiv.addEventListener('mouseover', () => {
+  logo.src = 'assests/Logo_inverted.svg'
+})
+logoDiv.addEventListener('mouseout', () => {
+  logo.src = 'assests/Logo.svg'
 })
